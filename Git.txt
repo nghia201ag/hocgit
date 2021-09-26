@@ -1,0 +1,54 @@
+** Làm việc với thư mục
+	Tạo thư mục: mkdir <ten>
+	Tao thu muc liên tiếp: mkdir -p <ten>/<ten>/... (css/css5)
+	Xóa thư mục: rm -RF <ten>/
+	Chuyển vào thư mục tiếp theo đối với bash: cd <ten>[/<ten>/<ten>...]
+	Chuyển thư mục ngay lập tức với bash: cd /<ten>
+	Trờ về thư mục liền trước với bash: cd ..
+	Kiểm tra thư mục bash chỗ nào: pwd
+	Tạo file: echo "<Nội dung trong file>"><tenfile.txt> (echo "khoitao">khoitao.txt
+
+** Làm việc cùng git
+	Tạo môi trường git: git init
+
+	Kiểm tra coi có branch gì chưa: git branch
+	Tạo branch: git branch <tên>
+	Tạo branch mới và chuyển vị trí Bash qua nhánh đó: git checkout -b <ten>
+	Xóa branch( nhỡ đứng Bash ở vị trí cha của branch cần xóa): git branch -d <ten>
+	Chuyển đến vị trí branch mong muốn: git checkout <ten>
+	
+	Kiểm tra có file gì trong branch ở vị trí hiện tại của Bash: ls
+	Xem trạng thái branch hiện tại của Bash: git status
+
+	Thêm nhiều từng file vào git: git add <tenfile.txt> [<tenfile.txt> <...> ..]
+	Thêm tất cả file vào git: git add .
+	Bình luận cho cái vừa thêm(git add): git commit -m "<Noi Dung>"
+	Xem lại lịch sử commit: git log
+	Sửa lại commit vừa rồi: git commit --amend (sửa commit trên dòng hiện tại, kéo xuống cuối gõ: :wq để lưu và thoát)
+	Commit nhưng thiếu file do chưa add: git add <file> -> git commit --amend (làm như trên)
+
+	*Commit trở về Undo
+	Trờ về trước khi commit 1 lần: git checkout -- <file muốn trở lại 1 lần>
+	Trở về với n số và giữ nguyễn những cái đã sửa trong file CHƯA COMMIT sau đó: git reset --sort HEAD~1 (HEAD~1 là 1 lần, ~2 là 2 lần, ~n là n lần)
+	Trở về với n số và bỏ luôn những cái đã sửa trong file CHƯA COMMIT sau đó: git reset --hard HEAD~1 (HEAD~1 là 1 lần, ~2 là 2 lần, ~n là n lần)
+
+	*Commit xóa hết
+	Chưa commit và muốn xóa hết file: git clean --force
+			
+	Merge Lấy file bên kia vào file có vị trí Bash hiện tại: git merge <ten brand kia>
+
+
+
+*** Một vài điều cần nhớ
+	Branch đầu tiên là branch master
+	Xóa branch: nếu branch con chưa merge vào branch cha thì xóa ko được(nhưng bash sẽ hiện lên cách xóa), hãy merge vào branch cha nếu muốn xóa hoặc Bash sẽ hưỡng dẫn
+
+*** Làm việc với gihub
+	Truy cập: init -> add -> commit -> git remote add origin <url>
+	check url: git remote -v
+	Đổi link url: git remote set-url origin <url>
+
+	Đẩy lên: add -> commit -> git push origin <tên branch>
+	Kéo về: git pull origin <tên branch>
+
+	
